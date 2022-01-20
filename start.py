@@ -8,6 +8,8 @@ import pandas as pd
 import pytz
 import datetime as dt
 import time
+import string
+valid_chars = "-_.() %s%s" % (string.ascii_letters, string.digits)
 
 # PyVISA Resource Manager
 rm = pyvisa.ResourceManager()
@@ -24,6 +26,8 @@ time.sleep(1.3)
 
 # GUI
 input_column = [
+  [sg.Text("Company:")],
+  [sg.In("Tridonic", size = (30, 1), enable_events = True, key = "-COMPANY-")],
   [sg.Text("Model:")],
   [sg.In("LC 50W", size = (30, 1), enable_events = True, key = "-MODEL-")],
   [sg.Text("Article number:")],
@@ -37,6 +41,7 @@ input_column = [
       key = '-FILE_SAVE-', 
       file_types=(('CSV', '.csv'), ('all', '.*')), 
       ), 
+    sg.Button("Remove"), 
     sg.Button("Cancel")
   ]
 ]
@@ -44,7 +49,7 @@ input_column = [
 ## For Table column
 data = []
 header_list = [
-  'Model', 'Article number', 'datetime', 
+  'Company', 'Model', 'Article number', 'datetime', 
   'I_out', 'U_out', 'P_out', 'P', 'efficiency','PF', 'THD_v'
   ]
 
@@ -73,6 +78,7 @@ while True:
     tz = pytz.timezone('Europe/Berlin')
     datetime = dt.datetime.now(tz)
     # User inputs
+    company = values['-COMPANY-']
     model = values['-MODEL-']
     article_number = values['-ARTNO-']
     # try converting to float else error message
@@ -92,18 +98,26 @@ while True:
     else:
       efficiency = 0
     data.append([
-      model, article_number, datetime, 
+      company, model, article_number, datetime, 
       I_out, U_out, P_out, P, efficiency, PF, THD_v
-      ])
+    ])
     window["-table-"].update(
       values = data, 
       num_rows = min(10, len(data))
-      )
+    )
   if (event == '-FILE_PATH-') and (values['-FILE_PATH-'] != ''):
     print('Saving to:', values['-FILE_PATH-'])
     df = pd.DataFrame(data, columns = header_list)
-    df.to_csv(values['-FILE_PATH-'], index = False)
-  if event == "Cancel" or event == sg.WIN_CLOSED:
+
+    s = ''.join(c for c in model if c in valid_chars)
+    filename = values['-FILE_PATH-'] + s + "_" + time.strftime(
+      "%Y%m%j",
+      time.localtime()
+      )
+    df.to_csv(filename, index = False)
+  if (event == "Remove") and (len(an_array) > 0):
+    data.pop()
+  if (event == "Cancel") or (event == sg.WIN_CLOSED):
     break
 
 window.close()
