@@ -1,6 +1,8 @@
 # user defined files
 EN_66201_66202_UserManual_1704.pdf
 PEAKTECH_4094_PROGRAMMING-MANUAL-EN.pdf
+# user defined folders
+img/original
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
