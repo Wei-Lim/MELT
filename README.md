@@ -15,9 +15,15 @@ Python script for measurement of LED control gears.
  - PeakTech 4095
     - voltage DC (output)
 
+## Load - LED modules
+- 6x Fortimo LED Strip 1ft 1100lm 830 FC HV5
+- 6x Fortimo LED Strip 1ft 1100lm 940 FC LV5
+
 ## Measurement setup
-[Measurement setup](img/Messaufbau_MELT.png)
-[Setup image](img/setup_1.JPG)
+
+![Measurement setup](img/Messaufbau_MELT.png)
+
+![Setup image](img/setup_1.JPG)
 
 - Voltage correct circuit to measure DC voltage output
 - Measuring devices needs to be connected before starting the Python script
