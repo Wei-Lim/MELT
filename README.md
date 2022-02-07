@@ -17,6 +17,7 @@ Python script for measurement of LED control gears.
 
 ## Measurement setup
 [Measurement setup](img/Messaufbau_MELT.png)
+[Setup image](img/setup_1.JPG)
 
 - Voltage correct circuit to measure DC voltage output
 - Measuring devices needs to be connected before starting the Python script
