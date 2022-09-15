@@ -101,8 +101,9 @@ while True:
       company, model, article_number, datetime, 
       I_out, U_out, P_out, P, efficiency, PF, THD_v
     ])
+    # Update table output
     window["-table-"].update(
-      values = data, 
+      values   = data, 
       num_rows = min(10, len(data))
     )
   if (event == '-FILE_PATH-') and (values['-FILE_PATH-'] != ''):
@@ -115,8 +116,13 @@ while True:
       time.localtime()
       )
     df.to_csv(filename, index = False)
-  if (event == "Remove") and (len(an_array) > 0):
+  if (event == "Remove") and (len(data) > 0):
     data.pop()
+    # Update table output
+    window["-table-"].update(
+      values   = data, 
+      num_rows = min(10, len(data))
+    )
   if (event == "Cancel") or (event == sg.WIN_CLOSED):
     break
 
