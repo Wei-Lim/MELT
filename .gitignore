@@ -4,6 +4,9 @@ PEAKTECH_4094_PROGRAMMING-MANUAL-EN.pdf
 # user defined folders
 img/original
 
+# python virtual environment
+.venv/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -118,3 +121,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.Rproj.user
