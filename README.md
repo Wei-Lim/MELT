@@ -1,11 +1,15 @@
 # MELT
 Python script for measurement of LED control gears.
 
- ## Requirement
+## Requirements
 - Python
-- NI-VISA to control measurement devices
-- Download and install NI-VISA on Windows systems
-- https://www.ni.com/de-de/support/downloads/drivers/download.ni-visa.html#409839
+- Chroma EN 66202 installation
+    1. SoftPanel v1.2.2.4 installieren und neu starten
+    2. IVI-Shared Components installieren und neu starten (ni-icp_19.5.0_offline.iso)
+    3. NI-VISA installieren und neu starten (NIVISA1750full.exe)
+        - NI-VISA to control measurement devices
+        - Download and install NI-VISA on Windows systems
+        - https://www.ni.com/de-de/support/downloads/drivers/download.ni-visa.html#409839
 
  ## Measurement device
  - Chroma EN 66202
