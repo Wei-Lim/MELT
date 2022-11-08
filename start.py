@@ -43,10 +43,6 @@ input_column = [
         sg.Button("Measure"), 
         sg.InputText(visible = False, enable_events = True, key = "-FILE_PATH-"),
         sg.Button("SAVE"),
-        # sg.FileSaveAs( 
-        #     key        = '-FILE_SAVE-', 
-        #     file_types = (('CSV', '.csv'), ('all', '.*')), 
-        # ), 
         sg.Button("Remove"), 
         sg.Button("Cancel")
     ]
