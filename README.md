@@ -14,6 +14,8 @@ Python script for measurement of LED control gears.
     - total harmonic distortion (voltage)
  - PeakTech 4095
     - voltage DC (output)
+ - UNI-T UT161-E
+    - current DC (output)
 
 ## Load - LED modules
 - 6x Fortimo LED Strip 1ft 1100lm 830 FC HV5
@@ -28,6 +30,7 @@ Python script for measurement of LED control gears.
 - Voltage correct circuit to measure DC voltage output
 - Measuring devices needs to be connected before starting the Python script
 - Don't change PeakTech 4095 measurement mode after starting the Python script. This could lead to wrong measurement results.
+- Control and input DC current using UT161-E multimeter.
 
 
 
